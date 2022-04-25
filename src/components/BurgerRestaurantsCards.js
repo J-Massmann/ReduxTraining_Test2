@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BurgerRestaurantRatingStars from './BurgerRestaurantRatingStars';
 import LikeButton from './LikeButton';
 
 export default function BurgerRestaurantsCards({ burgerRestaurantDetails }) {
@@ -9,6 +10,7 @@ export default function BurgerRestaurantsCards({ burgerRestaurantDetails }) {
           <h2>{burgerRestaurantDetails.name}</h2>
           <LikeButton burgerRestaurantId={burgerRestaurantDetails.id} />
         </SectionWrapper>
+        <BurgerRestaurantRatingStars BurgerRestaurantRating={2.7} />
       </SingleBurgerRestaurantWrapper>
     </>
   );
