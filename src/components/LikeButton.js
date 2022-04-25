@@ -6,7 +6,7 @@ import { toggleLikeButton } from '../features/toggleLikeButtonSlice';
 export default function LikeButton({ burgerRestaurantId }) {
   const dispatch = useDispatch();
   const likeStatus = useSelector(
-    state => state.toggleLikeButton.statusListOfLikes[burgerRestaurantId]
+    state => state.toggleLike.statusListOfLikes[burgerRestaurantId]
   );
 
   return (
