@@ -8,6 +8,8 @@ export default function LikeButton({ burgerRestaurantId }) {
   const likeStatus = useSelector(
     state => state.toggleLike.statusListOfLikes[burgerRestaurantId]
   );
+  const status = useSelector(state => state.toggleLike.statusListOfLikes);
+  console.log(status);
 
   return (
     <StyledButton
