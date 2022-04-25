@@ -4,6 +4,7 @@ import { burgerRestaurantApi } from '../services/burgerRestaurants.js';
 import LoadMoreBurgerRestaurantsReducer from '../features/loadMoreBurgerRestaurantsSlice.js';
 import ToggleLikeButtonReducer from '../features/toggleLikeButtonSlice.js';
 import ChangePictureReducer from '../features/changePictureSlice.js';
+import ToggleAboutUsSectionTextReducer from '../features/toggleAboutUsSectionTextSlice.js';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     loadMoreBurgerRestaurants: LoadMoreBurgerRestaurantsReducer,
     toggleLike: ToggleLikeButtonReducer,
     changePicture: ChangePictureReducer,
+    toggleIsTextHidden: ToggleAboutUsSectionTextReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(burgerRestaurantApi.middleware),
