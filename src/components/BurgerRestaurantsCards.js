@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 import BurgerRestaurantMenu from './BurgerRestaurantMenu';
 import BurgerRestaurantRatingStars from './BurgerRestaurantRatingStars';
 import LikeButton from './LikeButton';
+import LocationButton from './LocationButton';
+import LocationModal from './LocationModal';
 
 export default function BurgerRestaurantsCards({ burgerRestaurantDetails }) {
-  console.log(burgerRestaurantDetails);
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <SingleBurgerRestaurantWrapper>
@@ -15,8 +18,14 @@ export default function BurgerRestaurantsCards({ burgerRestaurantDetails }) {
         <BurgerRestaurantRatingStars BurgerRestaurantRating={2.7} />
         <SectionWrapper>
           <BurgerRestaurantMenu burgers={burgerRestaurantDetails} />
+          <LocationButton handleOpen={() => setShowModal(true)} />
         </SectionWrapper>
       </SingleBurgerRestaurantWrapper>
+      <LocationModal
+        showModal={showModal}
+        locationDetails={burgerRestaurantDetails}
+        handleClose={() => setShowModal(false)}
+      />
     </>
   );
 }
