@@ -10,6 +10,9 @@ export default function Navigation() {
       <button>
         <Link to={'/imageslideshow'}>Image Slide Show</Link>
       </button>
+      <button>
+        <Link to={'/aboutus'}>About us</Link>
+      </button>
     </NavWrapper>
   );
 }
