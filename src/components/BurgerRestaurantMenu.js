@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 export default function BurgerRestaurantMenu({ burgers }) {
   return (
     <MenuWrapper>
+      <p>Hamburger</p>
       <Icon
         icon={
           burgers.brewery_type === 'micro'

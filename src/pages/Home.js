@@ -10,10 +10,6 @@ export default function Home() {
   );
   const { data, error, isLoading, isSuccess, isError } =
     useGetBurgerRestaurantsByNumberOfRestaurantsOnPageQuery();
-  const listOfBurgerRestaurantDisplayed = data.slice(
-    0,
-    currentNumberOfBurgerRestaurantsLoaded
-  );
   return (
     <main>
       <h1>List of burger restaurants</h1>
@@ -22,15 +18,17 @@ export default function Home() {
         {isError && error.message}
         {isSuccess &&
           data &&
-          listOfBurgerRestaurantDisplayed.map(burgerRestaurant => {
-            return (
-              <StyledListItem key={burgerRestaurant.id}>
-                <BurgerRestaurantsCards
-                  burgerRestaurantDetails={burgerRestaurant}
-                />
-              </StyledListItem>
-            );
-          })}
+          data
+            .slice(0, currentNumberOfBurgerRestaurantsLoaded)
+            .map(burgerRestaurant => {
+              return (
+                <StyledListItem key={burgerRestaurant.id}>
+                  <BurgerRestaurantsCards
+                    burgerRestaurantDetails={burgerRestaurant}
+                  />
+                </StyledListItem>
+              );
+            })}
       </StyledList>
       <LoadMoreBurgerRestaurantsButton />
     </main>
