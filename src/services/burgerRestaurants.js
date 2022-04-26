@@ -7,8 +7,7 @@ export const burgerRestaurantApi = createApi({
   }),
   endpoints: builder => ({
     getBurgerRestaurantsByNumberOfRestaurantsOnPage: builder.query({
-      query: numberOfRestaurantsLoaded =>
-        `?per_page=${numberOfRestaurantsLoaded}`,
+      query: () => '?per_page=50',
     }),
   }),
 });

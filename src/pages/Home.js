@@ -9,9 +9,11 @@ export default function Home() {
     state => state.loadMoreBurgerRestaurants.value
   );
   const { data, error, isLoading, isSuccess, isError } =
-    useGetBurgerRestaurantsByNumberOfRestaurantsOnPageQuery(
-      currentNumberOfBurgerRestaurantsLoaded
-    );
+    useGetBurgerRestaurantsByNumberOfRestaurantsOnPageQuery();
+  const listOfBurgerRestaurantDisplayed = data.slice(
+    0,
+    currentNumberOfBurgerRestaurantsLoaded
+  );
   return (
     <main>
       <h1>List of burger restaurants</h1>
@@ -20,7 +22,7 @@ export default function Home() {
         {isError && error.message}
         {isSuccess &&
           data &&
-          data.map(burgerRestaurant => {
+          listOfBurgerRestaurantDisplayed.map(burgerRestaurant => {
             return (
               <StyledListItem key={burgerRestaurant.id}>
                 <BurgerRestaurantsCards
