@@ -7,7 +7,6 @@ export default function AboutUsSection({ SectionDetails }) {
   const currentHiddenStatus = useSelector(
     state => state.toggleIsTextHidden.isTextHidden[SectionDetails.id]
   );
-  console.log(currentHiddenStatus);
   return (
     <section>
       <StyledButton
@@ -15,7 +14,9 @@ export default function AboutUsSection({ SectionDetails }) {
         onClick={() => dispatch(toggleHidden(SectionDetails.id))}
       >
         <h2>{SectionDetails.title}</h2>
-        <UnderlineText>Click to see more</UnderlineText>
+        <UnderlineText>
+          Click to see {currentHiddenStatus ? 'less' : 'more'}
+        </UnderlineText>
       </StyledButton>
       <p hidden={!currentHiddenStatus}>{SectionDetails.text}</p>
     </section>
